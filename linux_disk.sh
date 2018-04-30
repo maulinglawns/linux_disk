@@ -127,11 +127,11 @@ output=""
 while read device size used free percent mountpoint; do
     # Get percent used, strip non-digits
     percUsed=$(echo $percent | grep -o '[0-9]*')
-	# Sanity check the $percUsed variable
-	if [[ ! "$percUsed" =~ [0-9]{1,2} ]]; then
-		echo "Got incorrect size from $device. Exiting"
-		exit 5
-	fi
+    # Sanity check the $percUsed variable
+    if [[ ! "$percUsed" =~ [0-9]{1,2} ]]; then
+        echo "Got incorrect size from $device. Exiting"
+        exit 5
+    fi
     # Calculate percent free
     percFree=$((100-$percUsed))
     # Check size of disk, if smaller than or equal to default,
