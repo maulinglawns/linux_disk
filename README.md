@@ -7,7 +7,7 @@ NAME
     linux_disk
 
 SYNOPSIS
-    /opt/s24/nrpe-plugins/linux_disk.sh [-d] [-h]
+    ./linux_disk.sh [-d] [-h]
 
 DESCRIPTION
     linux_disk checks the remaining space of disks (/dev/sd[a-z][1-9] /dev/mapper*),
