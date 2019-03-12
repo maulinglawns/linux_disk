@@ -92,7 +92,7 @@ done
 shift $(($OPTIND-1))
 
 # Exit directly if we don't have any partitions to check
-if ! df | egrep -q '/dev/sd[a-z][1-9]?|mapper'; then
+if ! df | grep -E -q '/dev/sd[a-z][1-9]?|mapper'; then
     echo "No disks to check. Exiting."
     exit 3
 fi
@@ -189,7 +189,7 @@ while read device size used free percent mountpoint; do
             diskArray+=("OK: $percFree% left on $mountpoint ")
         fi
     fi
-done < <(df -Pm | egrep '/dev/sd[a-z][1-9]?|mapper')
+done < <(df -Pm | grep -E '/dev/sd[a-z][1-9]?|mapper')
 # Need -P (Posix) switch to prevent line breaks in df output.
 
 # Create exit code by parsing the $diskArray
